@@ -1,0 +1,134 @@
+.footer {
+  background: var(--dark);
+  color: rgba(255,255,255,0.65);
+
+  &__inner {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1.5fr;
+    gap: 3rem;
+    padding-top: 4rem;
+    padding-bottom: 3.5rem;
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+
+  &__brand {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+
+    img {
+      height: 64px;
+      width: auto;
+      max-width: 200px;
+      object-fit: contain;
+      filter: brightness(0) invert(1);
+    }
+  }
+
+  &__logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+
+    span:first-child {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: var(--gold);
+    }
+    span:last-child {
+      font-family: var(--font-body);
+      font-size: 0.55rem;
+      font-weight: 400;
+      letter-spacing: 0.35em;
+      color: rgba(255,255,255,0.45);
+      text-transform: uppercase;
+    }
+  }
+
+  &__tagline {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 1.05rem;
+    color: var(--gold-lt);
+    margin: 0;
+  }
+
+  &__address {
+    font-size: 0.875rem;
+    color: rgba(255,255,255,0.45);
+    margin: 0;
+  }
+
+  h4 {
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.25rem;
+  }
+
+  &__nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  &__contact {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.65);
+    padding: 0.3rem 0;
+    transition: color 0.25s;
+
+    &:hover {
+      color: var(--gold);
+    }
+  }
+
+  &__hours {
+    margin-top: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+
+    p {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.5);
+      margin: 0;
+    }
+  }
+
+  &__bottom {
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding: 1.25rem clamp(1rem, 5vw, 2.5rem);
+    text-align: center;
+
+    p {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.3);
+      margin: 0;
+    }
+  }
+}

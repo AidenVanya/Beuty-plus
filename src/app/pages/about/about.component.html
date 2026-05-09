@@ -1,0 +1,122 @@
+<!-- Page Hero -->
+<div class="page-hero">
+  <div class="page-hero__bg" style="background-image: url('assets/uploads/collage.png')"></div>
+  <div class="page-hero__content">
+    <span class="eyebrow">Chronos Beauty</span>
+    <h1>Hakkımızda</h1>
+    <p>2022'den bu yana güzelliği bir sanata dönüştürüyoruz.</p>
+  </div>
+</div>
+
+<!-- Story Section -->
+<section class="section-pad about-story">
+  <div class="container">
+    <div class="story-layout">
+
+      <div class="story-images" appScrollAnimate>
+        <div class="story-images__main">
+          <img src="assets/uploads/img_9.png" alt="Chronos Beauty Salon" loading="lazy">
+        </div>
+        <div class="story-images__accent">
+          <img src="assets/uploads/img_5.png" alt="Cilt Bakımı" loading="lazy">
+        </div>
+      </div>
+
+      <div class="story-text" appScrollAnimate [delay]="180">
+        <span class="eyebrow">Hikayemiz</span>
+        <h2>Zaman Tanrısı'nın<br><em>Güzellik Sanatı</em></h2>
+
+        <p>
+          Chronos — antik Yunan mitolojisinde zamanın kişileştirilmiş hali, Kronos'un adını taşıyan salonumuz,
+          güzelliğin zamansızlığına olan derin inancımızın somut bir ifadesidir. Güzellik geçicidir, ama
+          Chronos Beauty'deki her deneyim, hafızanıza sonsuza dek kazınmak için tasarlanmıştır.
+        </p>
+
+        <p>
+          2022 yılının baharında Sancaktepe İstanbul'da kapılarını açan salonumuz, kısa sürede bölgenin en
+          güvenilen güzellik merkezi haline geldi. Bunu sağlayan şey ne dev bir bütçe ne de görkemli bir
+          lokasyon; sadece sınırsız özen, uzmanlık ve her müşterinin yüzündeki gülümsemeye duyulan tutkuydu.
+        </p>
+
+        <p>
+          Güzellik bizim için bir bütündür: dış görünüş, iç huzur ve kendinize duyduğunuz güvenin toplamı.
+          Bu felsefeyle her hizmetimizi bir ritüele, her randevuyu bir kutlamaya dönüştürüyoruz. Protez tırnaktan
+          aromaterapi masajına, ipek kirpikten balayage boyamaya kadar sunduğumuz her hizmet, bu bütüncül
+          anlayışın yansımasıdır.
+        </p>
+
+        <div class="story-quote">
+          <div class="gold-divider"><span>❋</span></div>
+          <blockquote>
+            "Her dokunuşta bir yıldızın parlaklığını, her bakışta zamanın sonsuzluğunu hissediyorsunuz."
+          </blockquote>
+          <cite>— Chronos Beauty Ekibi</cite>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Values Section -->
+<section class="section-pad about-values">
+  <div class="container">
+    <div class="section-header" appScrollAnimate>
+      <span class="eyebrow">Değerlerimiz</span>
+      <h2>Bizi Biz Yapan<br><em>Farkımız</em></h2>
+    </div>
+
+    <div class="values-grid">
+      @for (v of values; track v.title; let i = $index) {
+        <div class="value-card" appScrollAnimate [delay]="i * 100">
+          <span class="value-card__icon">{{ v.icon }}</span>
+          <h4>{{ v.title }}</h4>
+          <p>{{ v.description }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Timeline Section -->
+<section class="section-pad about-timeline">
+  <div class="container">
+    <div class="section-header" appScrollAnimate>
+      <span class="eyebrow">Yolculuğumuz</span>
+      <h2>Zamanın İzinde<br><em>Chronos</em></h2>
+    </div>
+
+    <div class="timeline">
+      @for (item of timeline; track item.year + item.month; let i = $index) {
+        <div class="tl-item" [class.tl-item--right]="i % 2 !== 0" appScrollAnimate [delay]="i * 120">
+          <div class="tl-item__content">
+            <span class="tl-item__date">{{ item.year }} · {{ item.month }}</span>
+            <h4>{{ item.title }}</h4>
+            <p>{{ item.description }}</p>
+          </div>
+          <div class="tl-item__dot"></div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Gallery Section -->
+<section class="section-pad about-gallery">
+  <div class="container">
+    <div class="section-header" appScrollAnimate>
+      <span class="eyebrow">Galeri</span>
+      <h2>Sanata Dönüşen<br><em>Güzellik</em></h2>
+    </div>
+
+    <div class="gallery-grid">
+      @for (img of gallery; track img; let i = $index) {
+        <div class="gallery-item" appScrollAnimate [delay]="i * 80">
+          <img [src]="img" alt="Chronos Beauty" loading="lazy">
+          <div class="gallery-item__overlay">
+            <span>Chronos Beauty</span>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

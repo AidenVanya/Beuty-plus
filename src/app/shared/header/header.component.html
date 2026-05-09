@@ -1,0 +1,35 @@
+<header class="header" [class.scrolled]="scrolled()">
+  <div class="header__inner container">
+
+    <a routerLink="/" class="logo" (click)="menu.close()">
+      <img
+        src="assets/images/logo.png"
+        alt="Chronos Beauty"
+        class="logo__img"
+        onerror="this.style.display='none'"
+      >
+    </a>
+
+    <!-- Desktop nav -->
+    <nav class="nav-desktop">
+      <a routerLink="/"         routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" class="nav__link">Ana Sayfa</a>
+      <a routerLink="/services" routerLinkActive="active" class="nav__link">Hizmetler</a>
+      <a routerLink="/about"    routerLinkActive="active" class="nav__link">Hakkımızda</a>
+      <a routerLink="/contact"  routerLinkActive="active" class="nav__link">İletişim</a>
+      <a href="https://wa.me/905072075163" target="_blank" rel="noopener" class="btn btn-gold nav__cta">Randevu Al</a>
+    </nav>
+
+    <!-- Burger (mobile only) -->
+    <button
+      class="burger"
+      [class.open]="menu.isOpen()"
+      (click)="menu.toggle()"
+      aria-label="Menüyü aç/kapat"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+  </div>
+</header>

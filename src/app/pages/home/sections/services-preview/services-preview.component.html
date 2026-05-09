@@ -1,0 +1,47 @@
+<section class="section-pad services-preview">
+  <div class="container">
+
+    <div class="section-header" appScrollAnimate>
+      <span class="eyebrow">Öne Çıkan Hizmetler</span>
+      <h2>Güzelliğinizi<br>En İyi Ellere Bırakın</h2>
+      <p>Uzman ekibimiz, her hizmet için özel protokoller ve premium ürünler kullanır.</p>
+    </div>
+
+    <div class="sp-grid">
+      @for (svc of services; track svc.id; let i = $index) {
+        <article class="sp-card" appScrollAnimate [delay]="i * 150">
+          <div class="sp-card__img-wrap">
+            <img [src]="svc.image" [alt]="svc.title" class="sp-card__img" loading="lazy">
+            <span class="sp-card__badge">{{ svc.subtitle }}</span>
+          </div>
+          <div class="sp-card__body">
+            <h3 class="sp-card__title">{{ svc.title }}</h3>
+            <p class="sp-card__desc">{{ svc.description | slice:0:110 }}…</p>
+            <div class="sp-card__meta">
+              <span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
+                </svg>
+                {{ svc.duration }}
+              </span>
+              <span class="sp-card__price">{{ svc.priceRange }}</span>
+            </div>
+            <a href="https://wa.me/905072075163" target="_blank" rel="noopener" class="btn btn-gold sp-card__cta">
+              Randevu Al
+            </a>
+          </div>
+        </article>
+      }
+    </div>
+
+    <div class="sp-footer" appScrollAnimate [delay]="500">
+      <a routerLink="/services" class="btn btn-dark">
+        Tüm Hizmetleri Gör
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </a>
+    </div>
+
+  </div>
+</section>

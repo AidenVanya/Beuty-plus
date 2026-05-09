@@ -1,0 +1,50 @@
+<section class="section-pad about-preview">
+  <div class="container">
+    <div class="ap-layout">
+
+      <div class="ap-image" appScrollAnimate>
+        <img src="assets/uploads/collage.png" alt="Chronos Beauty Studio" loading="lazy">
+        <div class="ap-image__badge">
+          <span class="ap-image__badge-num">2022</span>
+          <span class="ap-image__badge-txt">yılından beri</span>
+        </div>
+      </div>
+
+      <div class="ap-content" appScrollAnimate [delay]="200">
+        <span class="eyebrow">Biz Kimiz?</span>
+        <h2>Zamanın Ötesinde<br><em>Güzellik</em> Sanatı</h2>
+
+        <p>
+          Chronos — Zamanın Tanrısı'nın adını taşıyan salonumuz, güzelliğin zamansızlığına inancımızın bir yansımasıdır.
+          2022 yılında Sancaktepe İstanbul'da açılan kapılarımız, her müşterimize "zamanın ötesinde güzellik" deneyimi
+          sunmak için tasarlanmıştır.
+        </p>
+
+        <p>
+          Güzellik bir bütündür; dış görünüş, iç huzur ve kendinize duyduğunuz güvenin toplamıdır.
+          Her hizmetimizde bu bütünlüğü yakalamak için en son teknikler, premium ürünler ve derin bir özen harmanlıyoruz.
+        </p>
+
+        <ul class="ap-values">
+          @for (v of values; track v.title) {
+            <li class="ap-value">
+              <span class="ap-value__icon">{{ v.icon }}</span>
+              <div>
+                <strong>{{ v.title }}</strong>
+                <p>{{ v.description }}</p>
+              </div>
+            </li>
+          }
+        </ul>
+
+        <a routerLink="/about" class="btn btn-gold">
+          Hikayemizi Keşfet
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>

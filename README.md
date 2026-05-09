@@ -1,22 +1,43 @@
-# CODING AGENTS: READ THIS FIRST
+# Beauty Plus
 
-This is a **handoff bundle** from Claude Design (claude.ai/design).
+Beauty Plus, modern ve şık bir güzellik merkezi için hazırladığımız web projesidir. Amacımız müşterilere sunduğumuz hizmetleri en iyi şekilde yansıtmak ve dijital dünyada estetik bir vitrin oluşturmaktır.
 
-A user mocked up designs in HTML/CSS/JS using an AI design tool, then exported this bundle so a coding agent can implement the designs for real.
+## Proje Hakkında
+Bu proje, kullanıcı deneyimini ön planda tutan, hızlı ve şık bir arayüz sunmak üzere tasarlandı. Hem mobil cihazlarda hem de masaüstünde kusursuz çalışacak şekilde geliştirildi. Güzellik merkezimize ait hizmetler, detaylar ve iletişim bilgileri gibi bölümleri içeriyor.
 
-## What you should do — IMPORTANT
+## Teknolojiler
+- Angular 17
+- TypeScript
+- SCSS & HTML5
 
-**Read `beauty-plus/project/Başak Beauty.html` in full.** The user had this file open when they triggered the handoff, so it's almost certainly the primary design they want built. Read it top to bottom — don't skim. Then **follow its imports**: open every file it pulls in (shared components, CSS, scripts) so you understand how the pieces fit together before you start implementing.
+## Kurulum ve Çalıştırma
 
-**If anything is ambiguous, ask the user to confirm before you start implementing.** It's much cheaper to clarify scope up front than to build the wrong thing.
+Projeyi kendi bilgisayarınızda çalıştırmak isterseniz şu adımları izleyebilirsiniz:
 
-## About the design files
+1. Projeyi bilgisayarınıza indirin:
+   ```bash
+   git clone https://github.com/AidenVanya/Beuty-plus.git
+   ```
 
-The design medium is **HTML/CSS/JS** — these are prototypes, not production code. Your job is to **recreate them pixel-perfectly** in whatever technology makes sense for the target codebase (React, Vue, native, whatever fits). Match the visual output; don't copy the prototype's internal structure unless it happens to fit.
+2. Proje dizinine gidin ve gerekli paketleri kurun:
+   ```bash
+   npm install
+   ```
 
-**Don't render these files in a browser or take screenshots unless the user asks you to.** Everything you need — dimensions, colors, layout rules — is spelled out in the source. Read the HTML and CSS directly; a screenshot won't tell you anything they don't.
+3. Geliştirme sunucusunu başlatın:
+   ```bash
+   npm start
+   ```
 
-## Bundle contents
+Sonrasında tarayıcınızdan `http://localhost:4200/` adresine girerek projeyi görüntüleyebilirsiniz. Kodlarda bir değişiklik yaptığınızda sayfa otomatik olarak güncellenecektir.
 
-- `beauty-plus/README.md` — this file
-- `beauty-plus/project/` — the `Beauty Plus` project files (HTML prototypes, assets, components)
+## Build Alma (Yayına Hazırlama)
+
+Projeyi canlı ortama almak için build komutunu kullanabilirsiniz:
+```bash
+npm run build
+```
+Bu komut, yayına hazır dosyaları `dist/` klasörü altında oluşturacaktır.
+
+## İletişim
+Herhangi bir sorunuz veya öneriniz olursa lütfen iletişime geçmekten çekinmeyin.

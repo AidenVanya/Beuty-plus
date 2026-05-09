@@ -1,0 +1,150 @@
+<!-- Page Hero -->
+<div class="page-hero">
+  <div class="page-hero__bg" style="background-image: url('assets/uploads/img_7.png')"></div>
+  <div class="page-hero__content">
+    <span class="eyebrow">Bize Ulaşın</span>
+    <h1>İletişim</h1>
+    <p>Randevu almak veya bilgi için her zaman yanınızdayız.</p>
+  </div>
+</div>
+
+<section class="section-pad contact-page">
+  <div class="container">
+    <div class="contact-layout">
+
+      <!-- Left: Form -->
+      <div class="contact-form-wrap" appScrollAnimate>
+        <h2>Randevu <em>Formu</em></h2>
+        <p class="contact-form-desc">Formu doldurun, WhatsApp üzerinden size dönelim.</p>
+
+        @if (submitSuccess) {
+          <div class="contact-success">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>
+            </svg>
+            <p>WhatsApp açıldı! Mesajınız hazırlandı. Göndermek için WhatsApp'ta onaylayın.</p>
+          </div>
+        }
+
+        <form [formGroup]="form" (ngSubmit)="onSubmit()" class="c-form" novalidate>
+
+          <div class="c-form__group">
+            <label for="name">Ad Soyad *</label>
+            <input
+              id="name"
+              type="text"
+              formControlName="name"
+              placeholder="Adınız ve soyadınız"
+              [class.error]="submitted && form.get('name')?.invalid"
+            >
+            @if (submitted && form.get('name')?.invalid) {
+              <span class="c-form__error">Lütfen adınızı girin.</span>
+            }
+          </div>
+
+          <div class="c-form__group">
+            <label for="phone">Telefon Numarası *</label>
+            <input
+              id="phone"
+              type="tel"
+              formControlName="phone"
+              placeholder="+90 5xx xxx xx xx"
+              [class.error]="submitted && form.get('phone')?.invalid"
+            >
+            @if (submitted && form.get('phone')?.invalid) {
+              <span class="c-form__error">Geçerli bir telefon numarası girin.</span>
+            }
+          </div>
+
+          <div class="c-form__group">
+            <label for="service">İlgilendiğiniz Hizmet *</label>
+            <select
+              id="service"
+              formControlName="service"
+              [class.error]="submitted && form.get('service')?.invalid"
+            >
+              <option value="">Hizmet seçin...</option>
+              @for (s of services; track s) {
+                <option [value]="s">{{ s }}</option>
+              }
+            </select>
+            @if (submitted && form.get('service')?.invalid) {
+              <span class="c-form__error">Lütfen bir hizmet seçin.</span>
+            }
+          </div>
+
+          <div class="c-form__group">
+            <label for="message">Notunuz (opsiyonel)</label>
+            <textarea
+              id="message"
+              formControlName="message"
+              placeholder="Eklemek istediğiniz bilgiler..."
+              rows="3"
+            ></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-gold c-form__submit">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            WhatsApp ile Randevu Al
+          </button>
+
+        </form>
+      </div>
+
+      <!-- Right: Info -->
+      <div class="contact-info" appScrollAnimate [delay]="180">
+
+        <div class="contact-info__card">
+          <h4>Çalışma Saatleri</h4>
+          <table class="contact-hours">
+            @for (h of hours; track h.day) {
+              <tr>
+                <td>{{ h.day }}</td>
+                <td>{{ h.time }}</td>
+              </tr>
+            }
+          </table>
+        </div>
+
+        <div class="contact-info__card">
+          <h4>Direkt İletişim</h4>
+          <a href="https://wa.me/905072075163" target="_blank" rel="noopener" class="contact-wa-link">
+            <div class="contact-wa-link__icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+              </svg>
+            </div>
+            <div>
+              <strong>WhatsApp</strong>
+              <span>+90 507 207 51 63</span>
+            </div>
+          </a>
+        </div>
+
+        <div class="contact-info__card contact-info__card--map">
+          <h4>Konum</h4>
+          <p class="contact-address">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+            </svg>
+            Sancaktepe, İstanbul
+          </p>
+          <div class="contact-map-embed">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d96133.49!2d29.2204!3d40.9906!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cac02c62a0d7ef%3A0x3db854e41c00e2!2sSancaktepe%2C%20Istanbul!5e0!3m2!1sen!2str!4v1620000000000"
+              width="100%"
+              height="200"
+              style="border:0; border-radius: 12px;"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,30 @@
+<section class="section-pad reviews">
+  <div class="container">
+
+    <div class="section-header" appScrollAnimate>
+      <span class="eyebrow">Müşteri Yorumları</span>
+      <h2>Onlar Yaşadı,<br>Sizin İçin Anlattı</h2>
+      <p>Binlerce memnun müşterimizin güzellik yolculuğunda yanlarında olmaktan onur duyuyoruz.</p>
+    </div>
+
+    <div class="rv-grid">
+      @for (review of reviews; track review.name; let i = $index) {
+        <div class="rv-card" appScrollAnimate [delay]="i * 120">
+          <div class="rv-card__stars">
+            @for (s of stars; track s) {
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--gold)">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+              </svg>
+            }
+          </div>
+          <blockquote class="rv-card__text">"{{ review.text }}"</blockquote>
+          <div class="rv-card__author">
+            <div class="rv-card__avatar">{{ review.name.charAt(0) }}</div>
+            <span class="rv-card__name">{{ review.name }}</span>
+          </div>
+        </div>
+      }
+    </div>
+
+  </div>
+</section>
